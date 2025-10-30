@@ -1,0 +1,37 @@
+[
+  {
+    "idCart": 1,
+    "productsInShopingCart": [
+      {
+        "idProduct": 1,
+        "name": "Apfel",
+        "price": 0.99
+      },
+      {
+        "idProduct": 2,
+        "name": "Banane",
+        "price": 1.19
+      },
+      {
+        "idProduct": 3,
+        "name": "Orange",
+        "price": 0.79
+      }
+    ]
+  },
+  {
+    "idCart": 2,
+    "productsInShoppingCart": [
+      {
+        "idProduct": 1,
+        "name": "Apfel",
+        "price": 0.99
+      },
+      {
+        "idProduct": 2,
+        "name": "Banane",
+        "price": 1.19
+      }
+    ]
+  }
+]
