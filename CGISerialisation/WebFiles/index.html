@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Testseite</title>
+</head>
+<body>
+<p>Hello World</p>
+<h1>Hallo {{USER}}!</h1>
+<p>Nachricht: {{MESSAGE}}</p>
+<p>Datum: {{DATUM}}</p>
+<form action="/cgi-bin/Serialisation.bat" method="get">
+    <input name="USER" />
+    <input name="MESSAGE" />
+    <input type="submit" value="Senden" />
+</form>
+</body>
+</html>
