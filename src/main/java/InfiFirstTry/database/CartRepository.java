@@ -32,6 +32,5 @@ public interface CartRepository {
      * @param cartID ID of the cart to get the products from
      * @return Array of Products in the cart
      */
-     @Deprecated
      public Product[] getProductsInCart(int cartID);
 }

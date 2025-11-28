@@ -1,10 +1,16 @@
 package InfiFirstTry.webapp;
 
+import InfiFirstTry.service.SessionController;
+
+import java.io.File;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Map;
+
+import static InfiFirstTry.service.SessionController.getSessionIdFromCookie;
 
 public class CgiParameterController {
 
@@ -18,6 +24,12 @@ public class CgiParameterController {
     private String contentLength;
     private String pathInfo;
 
+    public String getSessionId() {
+        return sessionId;
+    }
+
+    private String sessionId;
+
     private Map<String, String> params = new HashMap<>();
     private char[] contentFromBody = null;
 
@@ -25,7 +37,7 @@ public class CgiParameterController {
         return System.getenv(key);
     }
 
-    public CgiParameterController() {
+    public CgiParameterController() throws IOException {
 
         qryString = null;
         String qryStringEncoded = getEnvironment("QUERY_STRING");
@@ -36,6 +48,15 @@ public class CgiParameterController {
                 qryString = qryStringEncoded;
             }
             parseParameters(qryString); // GET-Parameter einlesen
+        }
+
+        String cookieHeader = System.getenv("HTTP_COOKIE");
+
+        sessionId = getSessionIdFromCookie(cookieHeader);
+        if (sessionId == null) {
+            sessionId = SessionController.generateSessionId();
+            System.out.println("Set-Cookie: SESSIONID=" + sessionId + "; Path=/; HttpOnly");
+            SessionController.save(sessionId, "route=index");
         }
 
         remoteAddr = getEnvironment("REMOTE_ADDR");
