@@ -31,12 +31,20 @@ public class User {
         this.sessionID = sessionID;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "idUser=" + idUser +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", birthday=" + birthday +
+                ", sessionID='" + sessionID + '\'' +
+                ", deleted=" + deleted +
+                '}';
+    }
 
 
-
-
-
-    //Standard Getters and Setters
+//Standard Getters and Setters
 
     /**Standard Getter for the ID of the user*/
     public int getIdUser() {

@@ -12,7 +12,7 @@ public class Cart {
 
     // Found in the database
     /**Identifaction of the cart of a certain user*/
-    private final int idCart;
+    private int idCart = 1;
 
 
     //Not in the database
@@ -22,10 +22,20 @@ public class Cart {
     private LinkedList<Product> productsInShoppingCart;
 
 
+    @Override
+    public String toString() {
+        return "Cart{" +
+                "idCart=" + idCart +
+                ", productsInShoppingCart=" + productsInShoppingCart +
+                '}';
+    }
+
     /**Constructor to create a new cart with zero products and certain ID*/
     public Cart(int idCart) {
         this.idCart = idCart;
         this.productsInShoppingCart = new LinkedList<>();
+    }
+    public Cart(){
     }
 
     /**Standard Getter for the ID of the cart*/
@@ -40,7 +50,7 @@ public class Cart {
 
     /**Takes the price of all products in the cart and adds it to the total price
      * @return the total price of all products in the cart*/
-    public double getTotalPrice() {
+    public double calcTotalPrice() {
         double totalPrice = 0;
         for (Product product : productsInShoppingCart) {
             totalPrice += product.getPrice();

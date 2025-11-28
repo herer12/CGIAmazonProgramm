@@ -14,9 +14,18 @@ public class Product {
     /**Nedded for JSON Serialization*/
     public Product() {}
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "idProduct=" + idProduct +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", deleted=" + deleted +
+                '}';
+    }
 
     /**Standard Constructor for Initializing all variables*/
-    Product(int idProduct, String name, double price){
+    Product(int idProduct, String name, double price, boolean deleted) {
         this.idProduct = idProduct;
         this.name = name;
         this.price = price;
